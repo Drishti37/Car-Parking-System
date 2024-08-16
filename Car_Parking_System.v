@@ -16,7 +16,7 @@ module parking_system(
     parameter PARK = 2'b11;
    
     reg [1:0] current_state, next_state;
-    reg [6:0] count=7'b0000000;
+    reg [2:0] count=3'b000;
 
     reg red_tmp, green_tmp;
 
@@ -35,7 +35,7 @@ module parking_system(
             IDLE: begin
                   green_tmp = 1'b0;
                   red_tmp = 1'b0;
-                  if (count <= 7'b1100100)
+                  if (count <= 3'b110)
                       begin
                       if(sensor_exit)
                          count=count-1;
